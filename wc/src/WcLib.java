@@ -1,27 +1,39 @@
-import java.io.*;
+class WcLib {
 
-class WcLib{
+    private String text;
 
-  public int countLines(String text){
-	   return (text.split("\n").length);
-  };
+    public WcLib(String text) {
+        this.text = text;
+    }
 
-  public int countWords(String text){
-    String[] words = text.split("\\s+");
-    int count = 0;
-    for(int i=0;i<words.length;i++){
-      if(words[i]!="") count++;
-    };
-  	return count;
-  };
+    public int countLines() {
+        if (this.text.equals ("")) return 0;
+        return (this.text.split("\n").length);
+    }
 
-  public int countCharacters(String text){
-    return text.length();
-  };
+    public int countWords() {
+        String[] words = this.text.split("\\s+");
+        int count = 0;
+        for (String word:words) {
+            if (word != "") count++;
+        }
 
-  public int countBytes(String text){
-    byte[] bytes = text.getBytes();
-    return bytes.length;
-  };
+        return count;
+    }
 
-};
+    public int countCharacters() {
+        return this.text.length();
+    }
+
+
+    public int countBytes() {
+        byte[] bytes = this.text.getBytes();
+        return bytes.length;
+    }
+
+    public int[] countAll() {
+        int result[] = {countLines(), countWords(), countBytes()};
+        return result;
+    }
+
+}
