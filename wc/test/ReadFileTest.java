@@ -11,6 +11,7 @@ public class ReadFileTest{
         String expected = "hai\nhello\nhow\nare\nyou";
         assertEquals(content,expected);
     }
+
 //    @Test
 //    public void readFile_should_return_a_message_if_file_not_found() throws IOException {
 //        ReadFile read = new ReadFile("sample");
@@ -19,6 +20,13 @@ public class ReadFileTest{
 ////        assertEquals(message,expected);
 //        thrown.expectMessage(read.readFile());
 //        throw new NullPointerException("wc:  sample : open: No such file or directory");
+//    }
+
+//    @Test(expected = java.io.FileNotFoundException.class)
+//    public void testGradeAndPrintFileEX() throws Exception {
+//        System.out.println("wc: sample: open: No such file or directory");
+//        ReadFile read = new ReadFile("sample");
+//        read.readFile();
 //    }
 
 }

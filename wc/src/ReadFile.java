@@ -18,7 +18,7 @@ class ReadFile {
             result = String.valueOf(content);
             fr.close();
         } catch (FileNotFoundException e) {
-            System.out.println("wc: " + this.filename + ": " + "open: No such file or directory");
+            System.out.println("wc: "+ this.filename + ": " + "open: No such file or directory");
         }
         return result;
     }
