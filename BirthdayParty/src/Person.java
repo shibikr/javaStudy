@@ -15,9 +15,9 @@ public class Person {
 
     private void setPrefix() {
         if (gender.equals("male"))
-            name.prefix = "Mr";
+            name.setPrefix( "Mr");
         else
-            name.prefix = "Ms";
+            name.setPrefix( "Ms");;
     }
 
     private String getFirstNameFirst() {

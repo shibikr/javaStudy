@@ -62,4 +62,13 @@ public class PersonTest {
         assertEquals(expected, actual);
     }
 
+    @Test
+    public void getSpecifiedFormat_should_give_firstNameFirst_as_default_format() {
+        Name name = new Name("John", "Doe");
+        Address address = new Address("kodungallur", "Kerala", "India");
+        Person person = new Person(name, 29, "male", address);
+        String expected = person.getSpecifiedFormat("something");
+        String actual = "Mr John Doe";
+        assertEquals(expected, actual);
+    }
 }

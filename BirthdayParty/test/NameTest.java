@@ -18,4 +18,12 @@ public class NameTest {
         String actual = " Reghuvaran, Shibi";
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void setPrifix_sets_given_prefix_to_name(){
+        Name name = new Name("Shibi", "Reghuvaran");
+        name.setPrefix("Ms");
+        assertEquals("Ms",name.prefix);
+    }
+
 }

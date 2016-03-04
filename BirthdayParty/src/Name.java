@@ -13,6 +13,10 @@ public class Name {
         return this.prefix + " " + this.firstName + " " + this.lastName;
     }
 
+    public void setPrefix(String prefix) {
+        this.prefix = prefix;
+    }
+
     public String getLastFirst() {
         return this.prefix + " " + this.lastName + ", " + this.firstName;
     }
