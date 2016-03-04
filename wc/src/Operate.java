@@ -1,5 +1,3 @@
-import java.io.IOException;
-
 public class Operate {
     private String[] filenames;
     private String[] options;
@@ -9,7 +7,7 @@ public class Operate {
         this.options = options;
     }
 
-    public void getAllOptionsResult() throws IOException {
+    public void getAllOptionsResult() throws Exception {
         int[] result;
         if (this.options[0] == null) {
             for (String file : this.filenames) {

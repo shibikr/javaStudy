@@ -1,8 +1,6 @@
-import java.io.IOException;
-
 class Wc {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
         ArgumentsSeparator separator = new ArgumentsSeparator(args);
         String[] files = separator.getFiles();
         String[] options = separator.getOptions();

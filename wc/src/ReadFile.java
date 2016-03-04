@@ -7,7 +7,7 @@ class ReadFile {
         this.filename = filename;
     }
 
-    public String readFile() throws IOException {
+    public String readFile() throws Exception {
         String result = "";
         try {
             File file = new File(this.filename);
@@ -18,7 +18,7 @@ class ReadFile {
             result = String.valueOf(content);
             fr.close();
         } catch (FileNotFoundException e) {
-            System.out.println("wc: "+ this.filename + ": " + "open: No such file or directory");
+            throw new Exception("wc: "+ this.filename + ": " + "open: No such file or directory");
         }
         return result;
     }

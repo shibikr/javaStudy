@@ -9,7 +9,7 @@ public class LinkedList<I> implements MyInterface {
     }
 
     public void add(I data) {
-        addFirst(data);
+        addLast(data);
     }
 
     public void addFirst(I data) {
@@ -21,7 +21,7 @@ public class LinkedList<I> implements MyInterface {
 
     private void checkPositionIndex(int index) {
         if (index < 0 || size < index)
-            throw new IndexOutOfBoundsException("Size is " + size + "you can't insert to position " + index);
+            throw new IndexOutOfBoundsException("Size is " + size + " you can't insert to position " + index);
     }
 
     public void add(int index, I data) {
@@ -35,8 +35,7 @@ public class LinkedList<I> implements MyInterface {
             for (int i = 0; i < index - 1; i++) {
                 element = element.next;
             }
-
-            element.next = new Node<>(data, element.next);
+            element.next = new Node<I>(data, element.next);
             size++;
         }
     }
@@ -45,10 +44,11 @@ public class LinkedList<I> implements MyInterface {
         if (first == null)
             addFirst(data);
         else {
-            Node<I> element = first;
+            Node element = first;
 
-            while (element.next != null)
+            while (element.next != null) {
                 element = element.next;
+            }
 
             element.next = new Node<>(data);
             size++;
@@ -58,7 +58,7 @@ public class LinkedList<I> implements MyInterface {
 
     private void checkElementIndex(int index) {
         if (index < 0 || size <= index)
-            throw new IndexOutOfBoundsException("Size is " + size + "you can't access the element from " + index);
+            throw new IndexOutOfBoundsException("Size is " + size + " you can't access the element from " + index);
     }
 
     public I get(int index) {
