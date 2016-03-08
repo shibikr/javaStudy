@@ -25,5 +25,4 @@ public class NameTest {
         name.setPrefix("Ms");
         assertEquals("Ms",name.prefix);
     }
-
 }

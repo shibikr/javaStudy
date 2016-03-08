@@ -1,4 +1,3 @@
-
 public class Person {
 
     protected int age;
@@ -6,7 +5,7 @@ public class Person {
     protected Name name;
     protected Address address;
 
-    public Person(Name name, int age, String gender, Address address) {
+    public Person(Name name, String gender,  int age,Address address) {
         this.age = age;
         this.gender = gender;
         this.name = name;
@@ -14,10 +13,11 @@ public class Person {
     }
 
     private void setPrefix() {
-        if (gender.equals("male"))
-            name.setPrefix( "Mr");
+        if (gender.equals("Male"))
+            name.setPrefix("Mr");
         else
-            name.setPrefix( "Ms");;
+            name.setPrefix("Ms");
+        ;
     }
 
     private String getFirstNameFirst() {
