@@ -1,7 +1,7 @@
 public class Name {
-    protected String firstName;
-    protected String lastName;
-    protected String prefix;
+    private String firstName;
+    private String lastName;
+    private String prefix;
 
     public Name(String firstName, String lastName) {
         this.firstName = firstName;

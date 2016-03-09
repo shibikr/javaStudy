@@ -64,7 +64,8 @@ public class OperationsTest {
         LinkedList<Person> guest = new LinkedList<>();
         guest.add(person);
         Operations operate = new Operations(guest,"lastFirst");
-        String expected = "usage"+"\n";
+        String expected = "LabelPrinter: illegal option lastFirst\n" +
+                "usage: LabelPrinter [-f,-l,-fc,-lc] [file]";
         String actual = operate.printLabels();
         assertEquals( actual, expected );
     }
