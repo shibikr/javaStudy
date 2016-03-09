@@ -6,18 +6,22 @@ public class Name {
     public Name(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.prefix = "";
     }
 
-    public String getFirstLast() {
-        return this.prefix + " " + this.firstName + " " + this.lastName;
+    private String prefix(String gender) {
+        if (gender.equals("Male"))
+            return "Mr";
+        else
+            return "Ms";
     }
 
-    public void setPrefix(String prefix) {
-        this.prefix = prefix;
+
+    public String getFirstLast(String gender) {
+        return (prefix(gender) + " " + this.firstName + " " + this.lastName);
     }
 
-    public String getLastFirst() {
-        return this.prefix + " " + this.lastName + ", " + this.firstName;
+    public String getLastFirst(String gender) {
+        return (prefix(gender) + " " + this.lastName + ", " + this.firstName);
     }
+
 }

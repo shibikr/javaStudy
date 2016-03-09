@@ -1,54 +1,39 @@
 public class Person {
 
     protected int age;
-    protected String gender;
-    protected Name name;
-    protected Address address;
+    private String gender;
+    private Name name;
+    private Address address;
 
-    public Person(Name name, String gender,  int age,Address address) {
+    public Person(Name name, String gender, int age, Address address) {
         this.age = age;
         this.gender = gender;
         this.name = name;
         this.address = address;
     }
 
-    private void setPrefix() {
-        if (gender.equals("Male"))
-            name.setPrefix("Mr");
-        else
-            name.setPrefix("Ms");
-        ;
+    public String getFirstNameFirst() {
+        return name.getFirstLast(gender);
     }
 
-    private String getFirstNameFirst() {
-        return name.getFirstLast();
+    public String getLastNameFirst() {
+        return name.getLastFirst(gender);
     }
 
-    private String getLastNameFirst() {
-        return name.getLastFirst();
+    public String getFirstNameFirstWithCountry() {
+        return (name.getFirstLast(gender) + ", " + address.country);
     }
 
-    private String getFirstNameFirstWithCountry() {
-        return (name.getFirstLast() + ", " + address.country);
+    public String getLastNameFirstWithCountry() {
+        return (name.getLastFirst(gender) + ", " + address.country);
     }
 
-    private String getLastNameFirstWithCountry() {
-        return (name.getLastFirst() + ", " + address.country);
-    }
+//    private String getVouchers(){
+//        if(this.age >= 20)
+//            return (getFirstNameFirstWithCountry()+", "+this.age);
+//
+//    }
 
-    public String getSpecifiedFormat(String format) {
-        setPrefix();
-        switch (format) {
-            case "firstLast":
-                return getFirstNameFirst();
-            case "lastFirst":
-                return getLastNameFirst();
-            case "firstLastCountry":
-                return getFirstNameFirstWithCountry();
-            case "lastFirstCountry":
-                return getLastNameFirstWithCountry();
-            default:
-                return getFirstNameFirst();
-        }
-    }
+
+
 }

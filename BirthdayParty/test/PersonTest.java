@@ -5,71 +5,83 @@ import static org.junit.Assert.assertEquals;
 public class PersonTest {
 
     @Test
-    public void setPrifix_should_set_prefix_to_Mr_if_gender_is_male() {
+    public void getFirstNameFirst_should_give_firstname_first_format_for_male() {
         Name name = new Name("John", "Doe");
-        Address address = new Address( "kodungallur", "Kerala", "India");
-        Person person = new Person( name, "Male",29,address);
-        person.getSpecifiedFormat("firstLast");
-        assertEquals(name.prefix, "Mr");
-    }
-
-    @Test
-    public void setPrifix_should_set_prefix_to_Ms_if_gender_is_female() {
-        Name name = new Name("Ann", "Doe");
-        Address address = new Address("kodungallur", "Kerala", "India");
-        Person person = new Person(name, "female", 29, address);
-        person.getSpecifiedFormat("firstLast");
-        assertEquals(name.prefix, "Ms");
-    }
-
-    @Test
-    public void getSpecifiedFormat_should_give_firstname_first_format() {
-        Name name = new Name("John", "Doe");
-        Address address = new Address("kodungallur", "Kerala", "India");
+        Address address = new Address("Katlynn view","Georgia","Qatar");
         Person person = new Person(name, "Male", 29, address);
-        String expected = person.getSpecifiedFormat("firstLast");
+        String expected = person.getFirstNameFirst();
         String actual = "Mr John Doe";
         assertEquals(expected, actual);
     }
 
     @Test
-    public void getSpecifiedFormat_should_give_lastname_first_format() {
+    public void getFirstNameFirst_should_give_firstname_first_format_for_female() {
+        Name name = new Name("Vincent","Batz");
+        Address address = new Address("Katlynn view","Georgia","Qatar");
+        Person person = new Person(name, "Female", 29, address);
+        String expected = person.getFirstNameFirst();
+        String actual = "Ms Vincent Batz";
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void getLastNameFirst_should_give_lastname_first_format_for_male() {
         Name name = new Name("John", "Doe");
-        Address address = new Address("kodungallur", "Kerala", "India");
+        Address address = new Address("Katlynn view","Georgia","Qatar");
         Person person = new Person(name, "Male", 29, address);
-        String expected = person.getSpecifiedFormat("lastFirst");
+        String expected = person.getLastNameFirst();
         String actual = "Mr Doe, John";
         assertEquals(expected, actual);
     }
 
     @Test
-    public void getSpecifiedFormat_should_give_firstname_first_with_country_format() {
-        Name name = new Name("John", "Doe");
+    public void getLastNameFirst_should_give_lastname_first_format_for_female() {
+        Name name = new Name("Vincent","Batz");
+        Address address = new Address("Katlynn view","Georgia","Qatar");
+        Person person = new Person(name, "Female", 29, address);
+        String expected = person.getLastNameFirst();
+        String actual = "Ms Batz, Vincent";
+        assertEquals(expected, actual);
+    }
 
-        Address address = new Address("kodungallur", "Kerala", "India");
+    @Test
+    public void getFirstNameWithCountry_should_give_firstname_first_with_country_format_for_male() {
+        Name name = new Name("John", "Doe");
+        Address address = new Address("Katlynn view","Georgia","Qatar");
         Person person = new Person(name,"Male",  29, address);
-        String expected = person.getSpecifiedFormat("firstLastCountry");
-        String actual = "Mr John Doe, India";
+        String expected = person.getFirstNameFirstWithCountry();
+        String actual = "Mr John Doe, Qatar";
         assertEquals(expected, actual);
     }
 
     @Test
-    public void getSpecifiedFormat_should_give_lastname_first_with_country_format() {
-        Name name = new Name("John", "Doe");
-        Address address = new Address("kodungallur", "Kerala", "India");
-        Person person = new Person(name, "Male",  29,address);
-        String expected = person.getSpecifiedFormat("lastFirstCountry");
-        String actual = "Mr Doe, John, India";
+    public void getFirstNameWithCountry_should_give_firstname_first_with_country_format_for_female() {
+        Name name = new Name("Vincent","Batz");
+        Address address = new Address("Katlynn view","Georgia","Qatar");
+        Person person = new Person(name,"Female",  29, address);
+        String expected = person.getFirstNameFirstWithCountry();
+        String actual = "Ms Vincent Batz, Qatar";
         assertEquals(expected, actual);
     }
 
     @Test
-    public void getSpecifiedFormat_should_give_firstNameFirst_as_default_format() {
+    public void getLastNameFirstWithCountry_should_give_lastname_first_with_country_format_for_male() {
         Name name = new Name("John", "Doe");
-        Address address = new Address("kodungallur", "Kerala", "India");
+        Address address = new Address("Katlynn view","Georgia","Qatar");
         Person person = new Person(name, "Male",  29,address);
-        String expected = person.getSpecifiedFormat("something");
-        String actual = "Mr John Doe";
+        String expected = person.getLastNameFirstWithCountry();
+        String actual = "Mr Doe, John, Qatar";
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void getLastNameFirstWithCountry_should_give_lastname_first_with_country_format_for_female() {
+        Name name = new Name("Vincent","Batz");
+        Address address = new Address("Katlynn view","Georgia","Qatar");
+        Person person = new Person(name, "Female",  29,address);
+        String expected = person.getLastNameFirstWithCountry();
+        String actual = "Ms Batz, Vincent, Qatar";
+        assertEquals(expected, actual);
+    }
+
 }

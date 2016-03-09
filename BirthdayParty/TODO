@@ -7,6 +7,8 @@ given list of records in a file.
 Output:-
     a. Mr/Ms First Last
     b. Mr/Ms Last,  First
+    c. Mr/Ms First Last, Country
+    d. Mr/Ms Last, First, Country
         prefix
             male - Mr
             female - Ms
@@ -15,14 +17,18 @@ Output:-
 ./printLabel_lastFirst.sh [records.txt]
 
 $ cat records.txt
-    Mitesh, Jha, Male, 19, Gurgaon, Delhi, India
-    Vathsala, Mallikarjun, Female, 20, Bangalore, Karnataka, India
+    Jhon,Doe,Male,25,Veda haven,Vermont,Macedonia
+    Christeena,Jhon,Female,20,Veda haven,Vermont,Macedonia
 
-$ java LabelPrinter --firstLast records.txt
-    Mr Mitesh Jha
-    Ms Vathsala Mallikarjun
+$ java LabelPrinter -f records.txt
+    Mr John Doe
+    Ms Christeena John
 
-java LabelPrinter -f records.txt
+options:-
+    $java LabelPrinter -f records.txt
+    $java LabelPrinter -l records.txt
+    $java LabelPrinter -fc records.txt
+    $java LabelPrinter -lc records.txt
 
 recognising Guest as an entity :
     firstName,lastName,gender,age,city,state,country
@@ -31,3 +37,9 @@ Reading guest records from the file
 getting guest labels
 ------------------------------------------------
 Task list  :
+    * read file
+            using FileReader
+    * extract data and store
+            using LinkedList
+    * process extracted data with options
+    * print labels
