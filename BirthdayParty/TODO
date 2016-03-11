@@ -27,8 +27,10 @@ $ java LabelPrinter -f records.txt
 options:-
     $java LabelPrinter -f records.txt
     $java LabelPrinter -l records.txt
-    $java LabelPrinter -fc records.txt
-    $java LabelPrinter -lc records.txt
+    $java LabelPrinter -f -c records.txt Qatar
+    $java LabelPrinter -l -c records.txt Qatar
+    $java LabelPrinter -l -a records.txt
+    $java LabelPrinter -f -a records.txt
 
 recognising Guest as an entity :
     firstName,lastName,gender,age,city,state,country

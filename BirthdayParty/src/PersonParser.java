@@ -1,11 +1,15 @@
+import person.Address;
+import person.Name;
+import person.Person;
+
 import java.util.LinkedList;
 
-public class DataExtractor {
+public class PersonParser {
 
     private String content;
-    protected LinkedList<Person> guestDetails = new LinkedList<>();
+    private LinkedList<Person> guestDetails = new LinkedList<>();
 
-    public DataExtractor(String content) {
+    public PersonParser(String content) {
         this.content = content;
     }
 

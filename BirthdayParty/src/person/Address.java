@@ -1,3 +1,5 @@
+package person;
+
 public class Address {
 
     private String city;
@@ -10,6 +12,7 @@ public class Address {
         this.country = country;
     }
 
-
-
+    public boolean isSameCountry(String other) {
+        return other.equals(this.country);
+    }
 }
