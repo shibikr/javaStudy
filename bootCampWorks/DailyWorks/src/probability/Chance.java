@@ -1,3 +1,6 @@
+package probability;
+
+import exceptions.InvalidChanceInput;
 /*
 Job of the class
  - it calculates the chance of getting some with given sample space
@@ -37,12 +40,6 @@ public class Chance {
 
         return Double.compare(chance1.chance, chance) == 0;
 
-    }
-
-    @Override
-    public int hashCode() {
-        long temp = Double.doubleToLongBits(chance);
-        return (int) (temp ^ (temp >>> 32));
     }
 
 }
