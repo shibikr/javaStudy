@@ -10,7 +10,7 @@ public class OptionValidator {
     public ArrayList<String> getValidOptions() {
         ArrayList<String> validOptions = new ArrayList<>();
         String[] availableOptions = {"-l","-f","-c","-a"};
-        for (String option:options) {
+        for (String option : options) {
             for (String  valid:availableOptions) {
                 if (option.equals(valid)) {
                     validOptions.add(option);

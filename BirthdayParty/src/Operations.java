@@ -1,15 +1,16 @@
+import Formats.Label;
 import person.Person;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
+import java.util.Iterator;
 
 public class Operations {
     private final String country;
-    private LinkedList<Person> guestsDetails;
+    private GuestsList guestsDetails;
     private ArrayList<String> options;
     Label label = new Label();
 
-    public Operations(LinkedList<Person> guestsDetails, ArrayList<String> options, String country) {
+    public Operations(GuestsList guestsDetails, ArrayList<String> options, String country) {
         this.guestsDetails = guestsDetails;
         this.options = options;
         this.country = country;
@@ -21,7 +22,9 @@ public class Operations {
 
     private String printLabelsForSingleOption() {
         String labels = "";
-        for (Person guest : guestsDetails) {
+        Iterator iterate= guestsDetails.iterator();
+        while(iterate.hasNext()){
+            Person guest = (Person) iterate.next();
             if (options.indexOf("-f") != -1) {
                 labels += label.getFirstNameFirst(guest) + "\n";
             } else {
@@ -33,14 +36,24 @@ public class Operations {
 
 
     private ArrayList<String> getLabelsForTwoOptions() {
-
         String option = this.options.get(0) + this.options.get(1);
         ArrayList<String> labels = new ArrayList<>();
-        for (Person guest : guestsDetails) {
-            if (option.equals("-l-c")) {
-                labels.add(label.getLastNameFirstWithCountry(guest, this.country));
-            } else {
-                labels.add(label.getFirstNameFirstWithCountry(guest, this.country));
+        Iterator iterate= guestsDetails.iterator();
+        while(iterate.hasNext()){
+            Person guest = (Person) iterate.next();
+            switch (option) {
+                case "-l-c":
+                    labels.add(label.getLastNameFirstWithCountry(guest, this.country));
+                    break;
+                case "-f-c":
+                    labels.add(label.getFirstNameFirstWithCountry(guest, this.country));
+                    break;
+                case "-f-a":
+                    labels.add(label.getFirstNameFirstWithAge(guest, this.country));
+                    break;
+                default:
+                    labels.add(label.getLastNameFirstWithAge(guest, this.country));
+                    break;
             }
         }
         return labels;
@@ -65,8 +78,6 @@ public class Operations {
     public String printLabels() {
         int number = options.size();
         switch (number) {
-            case 0:
-                return printFirstNameFirstLabel();
             case 1:
                 return printLabelsForSingleOption();
             case 2:

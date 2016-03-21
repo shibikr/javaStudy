@@ -1,19 +1,15 @@
 package person;
 
-public enum Gender {
-    MALE("Mr"),
-    FEMALE("Ms");
+public class Gender {
+    private final String gender;
 
-    private final String prefix;
-
-    Gender(String title) {
-        this.prefix = title;
+    public Gender(String gender) {
+        this.gender = gender;
     }
 
-    @Override
-    public String toString() {
-        return prefix;
+    public String getPrefix() {
+        return  (gender.toUpperCase().equals( "MALE")) ? "Mr" : "Ms";
     }
 
 }
-
+    

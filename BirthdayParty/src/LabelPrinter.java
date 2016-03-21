@@ -1,12 +1,10 @@
-import person.Person;
-
+import java.io.File;
 import java.util.ArrayList;
-import java.util.LinkedList;
 
 public class LabelPrinter {
     public static void main(String[] args) throws Exception {
         ArgumentsSeparator arguments = new ArgumentsSeparator(args);
-        String file = arguments.getFileName();
+        ArrayList<File> file = arguments.getFileNames();
         String country = arguments.getConutry();
         ArrayList<String> options = arguments.getOptions();
         OptionValidator validator = new OptionValidator(options);
@@ -14,7 +12,7 @@ public class LabelPrinter {
         FileRead read = new FileRead(file);
         String content = read.readContent();
         PersonParser parser = new PersonParser(content);
-        LinkedList<Person> guests = parser.extractContent();
+        GuestsList guests = parser.extractContent();
         Operations operate = new Operations(guests,validOptions,country);
         System.out.println(operate.printLabels());
     }

@@ -1,5 +1,6 @@
+package person;
+
 import org.junit.Test;
-import person.Name;
 
 import static org.junit.Assert.assertEquals;
 

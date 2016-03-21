@@ -17,4 +17,5 @@ public class Name {
     public String getLastName() {
         return lastName;
     }
+
 }

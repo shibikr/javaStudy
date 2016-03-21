@@ -8,7 +8,7 @@
 
 package measurements;
 
-public enum LengthUnits implements Unit {
+public enum LengthUnits {
     FEET(300), INCHES(25), CENTIMETER(10), MILLIMETER(1);
 
     private double value;
@@ -17,8 +17,7 @@ public enum LengthUnits implements Unit {
         this.value = value;
     }
 
-    @Override
-    public double getConversionFactor(){
+    public double getConversionFactor() {
         return value;
     }
 

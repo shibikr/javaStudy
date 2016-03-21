@@ -1,6 +1,6 @@
 package measurements;
 
-public enum VolumeUnits implements Unit{
+public enum VolumeUnits {
     GALLON(3.78), LITER(1);
 
 
@@ -10,8 +10,8 @@ public enum VolumeUnits implements Unit{
         this.value = value;
     }
 
-    @Override
-    public double getConversionFactor(){
+
+    public double getConversionFactor() {
         return value;
     }
 
