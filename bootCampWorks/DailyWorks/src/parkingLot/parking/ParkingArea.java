@@ -33,5 +33,9 @@ public class ParkingArea {
     public int size() {
         return area.size();
     }
+
+    public boolean isAssignable() {
+        return 0.8 > (area.size()/capacity);
+    }
 }
     

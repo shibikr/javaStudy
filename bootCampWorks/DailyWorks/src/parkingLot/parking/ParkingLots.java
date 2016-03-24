@@ -1,21 +1,27 @@
 package parkingLot.parking;
 
-import java.util.ArrayList;
+import parkingLot.car.Car;
+
+import java.util.HashMap;
 
 public class ParkingLots {
-    private final ArrayList<ParkingArea> parkingLots;
+    private HashMap<Integer, ParkingArea> parkingLots;
 
     public ParkingLots() {
-        this.parkingLots = new ArrayList<>();
+        this.parkingLots = new HashMap<>();
     }
 
     public boolean add(ParkingArea parkingArea) {
-        return parkingLots.add(parkingArea);
+        parkingLots.put(parkingLots.size()+1 ,parkingArea);
+        return true;
     }
-
 
     public int getNoOfLots() {
         return parkingLots.size();
+    }
+
+    public boolean parkCar(int key, Car car){
+        return parkingLots.get(key).add(car);
     }
 }
     

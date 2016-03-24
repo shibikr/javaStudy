@@ -6,39 +6,18 @@
 package parkingLot.attendant;
 
 import parkingLot.car.Car;
-import parkingLot.parking.ParkingArea;
+import parkingLot.parking.ParkingLots;
 
-import java.util.ArrayList;
+public class ParkingLotAttendant implements Attendant {
+    private ParkingLots parkingLots;
 
-public class ParkingLotAttendant {
-    private final int capacity;
-    private ArrayList<ParkingArea> parkingLot;
-
-    public ParkingLotAttendant(int capacity) {
-        this.capacity = capacity;
-        parkingLot = new ArrayList<ParkingArea>();
+    public ParkingLotAttendant(ParkingLots parkingLots) {
+        this.parkingLots = parkingLots;
     }
 
-    public boolean park(Car car) {
-        if(isParkingAreaFull())
-            parkingLot.add(ParkingArea.createParkingArea(capacity));
-        for (ParkingArea parkingArea : parkingLot) {
-            if (!parkingArea.isFull())
-                parkingArea.add(car);
-        }
-        return true;
-    }
-
-    public int getNumberOfCarParked() {
-        int count = 0;
-        for (ParkingArea parkingArea : parkingLot) {
-            count += parkingArea.size();
-        }
-        return count;
-    }
-
-    public boolean isParkingAreaFull() {
-        return true;
+    @Override
+    public boolean park(Car car, int lotNumber) {
+        return parkingLots.parkCar(lotNumber,car);
     }
 }
     
